@@ -10,6 +10,20 @@ times 33 db 0
 start:
     jmp 0x7C0:next
 
+zero_interrupt:
+    mov ah, 0eh
+    mov al, '0'
+    mov bx, 0x00
+    int 0x10
+    iret
+
+one_interrupt:
+    mov ah, 0eh
+    mov al, '1'
+    mov bx, 0x00
+    int 0x10
+    iret
+
 next:
     cli
     mov ax, 0x7C0
