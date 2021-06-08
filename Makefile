@@ -1,3 +1,3 @@
 all:
-	nasm -f bin ./boot.asm -o ./boot.bin
+	nasm -f bin ./src/boot/boot.asm -o ./bin/boot.bin
 	
