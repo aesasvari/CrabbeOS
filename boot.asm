@@ -36,6 +36,16 @@ next:
 
     sti
 
+    mov word[ss:0x00], zero_interrupt
+    mov word[ss:0x02], 0x7C0
+
+    int 0
+
+    mov word[ss:0x04], one_interrupt
+    mov word[ss:0x06], 0x7C0
+
+    int 1
+
     mov si, message
     call print
     jmp $ 
