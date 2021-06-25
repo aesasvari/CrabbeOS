@@ -3,6 +3,7 @@
 #include <stdint.h>
 #include "idt/idt.h"
 #include "io/io.h"
+#include "memory/heap/kheap.h"
 
 uint16_t* video_mem = 0;
 uint16_t terminal_row = 0;
@@ -40,6 +41,7 @@ void terminal_write_char(char c, char colour)
 void terminal_init()
 {
     video_mem = (uint16_t*)(0xB8000);
+
     terminal_row = 0;
     terminal_column = 0;
 
@@ -76,5 +78,6 @@ void kernel_main()
     terminal_init();
     print("Hello World!\n");
 
+    kheap_init();
     idt_init();
 }
